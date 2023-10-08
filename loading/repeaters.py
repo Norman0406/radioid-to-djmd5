@@ -30,7 +30,7 @@ def load_from_data(data) -> typing.List[Repeater]:
 
 
 def load_from_file(filename: Path) -> typing.List[Repeater]:
-    with open(filename) as file:
+    with open(filename, "r", encoding="utf-8") as file:
         return load_from_data(file.read())
 
 

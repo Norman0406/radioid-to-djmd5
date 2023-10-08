@@ -1,6 +1,7 @@
 # Data
 rptrs.json
 users.json
+*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

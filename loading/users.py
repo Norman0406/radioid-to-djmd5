@@ -28,7 +28,8 @@ def _sanitize_data(user: User, data: typing.Any) -> typing.Any:
     sanitized_string = ''.join(c for c in data if ord(c) < 256)
 
     if sanitized_string != data:
-        print(f"User string for user {user} had to be sanitized: {sanitized_string}")
+        print(
+            f"User string for user {user} had to be sanitized: {sanitized_string}")
 
     return sanitized_string
 
@@ -44,7 +45,7 @@ def load_from_data(data) -> typing.List[User]:
 
 
 def load_from_file(filename: Path) -> typing.List[User]:
-    with open(filename) as file:
+    with open(filename, "r", encoding="utf-8") as file:
         return load_from_data(file.read())
 
 

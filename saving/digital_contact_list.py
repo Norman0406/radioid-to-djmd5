@@ -3,7 +3,9 @@ from enum import Enum
 from pathlib import Path
 import typing
 
-HEADER=["No.","Radio ID","Callsign","Name","City","State","Country","Remarks","Call Type","Call Alert"]
+HEADER = ["No.", "Radio ID", "Callsign", "Name", "City",
+          "State", "Country", "Remarks", "Call Type", "Call Alert"]
+
 
 class CallType(str, Enum):
     PRIVATE_CALL = "Private Call",
@@ -58,8 +60,9 @@ def write_to_file(filename: Path, contacts: typing.List[UserContact]):
 
     contacts = _create_contact_list(contacts)
 
-    with open(filename, 'w', newline='') as file:
-        writer = csv.writer(file, delimiter=',', quotechar='\"', quoting=csv.QUOTE_ALL)
+    with open(filename, 'w', newline='', encoding="ascii") as file:
+        writer = csv.writer(file, delimiter=',',
+                            quotechar='\"', quoting=csv.QUOTE_ALL)
         writer.writerow(HEADER)
 
         contacts_written = 0
