@@ -1,12 +1,10 @@
-
-
 from pathlib import Path
 import typing
 import click
 import urllib3
 
 from loading import users
-from conversion import user_to_contact
+from conversion import users_to_contacts
 from saving import digital_contact_list
 
 USERS_URL = "https://radioid.net/static/users.json"
@@ -49,7 +47,7 @@ def convert_users(countries: typing.List[str], input: typing.Optional[Path], out
         user_list = users.filter_by_countries(user_list, countries)
         print(f"Users list has been filtered to {len(user_list)} users")
 
-    contacts = user_to_contact.convert(user_list)
-    digital_contact_list.write_to_file(output, contacts)
+    contact_list = users_to_contacts.convert(user_list)
+    digital_contact_list.write_to_file(output, contact_list)
 
     print("Finished")

@@ -8,14 +8,14 @@ HEADER = ["No.", "Radio ID", "Callsign", "Name", "City",
 
 
 class CallType(str, Enum):
-    PRIVATE_CALL = "Private Call",
-    GROUP_CALL = "Group Call",
+    PRIVATE_CALL = "Private Call"
+    GROUP_CALL = "Group Call"
     ALL_CALL = "All Call"
 
 
 class CallAlert(str, Enum):
-    NONE = "None",
-    RING = "Ring",
+    NONE = "None"
+    RING = "Ring"
     ONLINE_ALERT = "Online Alert"
 
 
@@ -42,15 +42,15 @@ class _Contact(typing.NamedTuple):
 def _create_contact_list(user_contacts: typing.List[UserContact]) -> typing.List[_Contact]:
     contacts = []
 
-    id = 1
+    contact_id = 1
     for user_contact in user_contacts:
         contacts.append(_Contact(
-            id,
+            contact_id,
             CallType.PRIVATE_CALL,
             CallAlert.NONE,
             user_contact
         ))
-        id = id + 1
+        contact_id = contact_id + 1
 
     return contacts
 

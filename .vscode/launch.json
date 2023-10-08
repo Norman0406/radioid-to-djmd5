@@ -5,10 +5,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Convert users",
             "type": "python",
             "request": "launch",
             "program": "main.py",
+            "args": [
+                "convert-users",
+                "--country",
+                "Switzerland",
+                "--input",
+                "users.json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Convert repeaters",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "convert-repeaters",
+                "--country",
+                "Switzerland",
+                "--input",
+                "rptrs.json"
+            ],
             "console": "integratedTerminal",
             "justMyCode": true
         }
