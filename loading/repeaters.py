@@ -34,5 +34,5 @@ def load_from_file(filename: Path) -> typing.List[Repeater]:
         return load_from_data(file.read())
 
 
-def filter_by_country(repeaters: typing.List[Repeater], country: str) -> typing.List[Repeater]:
-    return list(filter(lambda repeater: repeater.country == country, repeaters))
+def filter_by_countries(repeaters: typing.List[Repeater], countries: typing.List[str]) -> typing.List[Repeater]:
+    return list(filter(lambda repeater: repeater.country in countries, repeaters))
