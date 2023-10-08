@@ -60,7 +60,7 @@ def write_to_file(filename: Path, contacts: typing.List[UserContact]):
 
     contacts = _create_contact_list(contacts)
 
-    with open(filename, 'w', newline='', encoding="ascii") as file:
+    with open(filename, 'w', newline='', encoding="latin-1") as file:
         writer = csv.writer(file, delimiter=',',
                             quotechar='\"', quoting=csv.QUOTE_ALL)
         writer.writerow(HEADER)

@@ -43,8 +43,13 @@ def convert_users(countries: typing.List[str], input: typing.Optional[Path], out
         response = http.request("GET", USERS_URL)
         user_list = users.load_from_data(response.data.decode())
 
+    print(f"Loaded {len(user_list)} users")
+
     if len(countries) > 0:
         user_list = users.filter_by_countries(user_list, countries)
+        print(f"Users list has been filtered to {len(user_list)} users")
 
     contacts = user_to_contact.convert(user_list)
     digital_contact_list.write_to_file(output, contacts)
+
+    print("Finished")
